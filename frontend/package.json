@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "npx vite build",
     "preview": "vite preview",
+    "postinstall": "chmod +x ./node_modules/.bin/vite",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
