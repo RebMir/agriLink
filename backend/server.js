@@ -8,13 +8,29 @@ const { googleLogin } = require('./controllers/authControllers');
 const app = express();
 
 // ----------------------------
+// CORS Setup (Allow multiple origins)
+// ----------------------------
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://agri-link-rh43.vercel.app"
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+}));
+
+// ----------------------------
 // Middleware
 // ----------------------------
 app.use(helmet());
-app.use(cors({
-  origin: 'http://localhost:5173', // frontend URL
-  credentials: true,
-}));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
