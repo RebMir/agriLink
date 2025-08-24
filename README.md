@@ -45,7 +45,7 @@ It provides features like marketplace, AI advisory, weather updates, loan manage
 
 ### 1. Clone the Repository
 ```
-git clone https://github.com/your-username/agrilink.git
+git clone https://github.com/RebMir/agriLink.git
 cd agrilink
 ```
 2. Setup Backend
